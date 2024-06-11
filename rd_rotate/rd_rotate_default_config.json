@@ -1,0 +1,17 @@
+// Config version.
+version : 7
+
+// Default configuration.
+config : {	
+    // Is the current rotation index persistent? If true, the rotation will continue after server restart,
+    // If false, the rotation will always start from the first setup.
+    // You can always delete the rd_rotate_data.json file from lua_config to reset the persisted index.
+    "persist_index" : false,
+
+    "rotation": [{
+    },{
+        "PracticeLength" : 0,
+        "QualifyLength" : 5,
+        "RaceDateHour": 1
+    }]
+}
