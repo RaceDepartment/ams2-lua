@@ -5,8 +5,7 @@ Simple server rotation using LibRotate.
 The configuration:
 - persist_index: If true, the addon will save the rotation index, and continue the rotation after server restart.
                  If false, the rotation will start from the first setup after server restart
-- default: Default setup. See rd_rotate.txt and lib_rotate.lua for more information about the setup format.
-- rotation: Array of setups to rotate. Each setup will be created as combination of the default setup, overridden by the index-th setup from rotation.
+- rotation: Array of setups to rotate. Each setup will be created as combination of the initial setup, overridden by the index-th setup from rotation.
 
 Persistent data:
 - index: Index of rotation, used so the rotation continues after server restart, rather than starting
