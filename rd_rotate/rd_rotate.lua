@@ -86,6 +86,9 @@ local function advance_next_setup()
 
 	for k, v in pairs(setup) do
 		if initial_state[k] == nil then
+			-- we are about to apply a change to something we 
+			-- have not changed before, so we need to remember
+			-- what the initial value was
 			local iv = session.next_attributes[k]
 			print("RDRotate: Remembering initial " .. k .. " = " .. iv)
 			initial_state[k] = iv
@@ -97,7 +100,7 @@ local function advance_next_setup()
         setup.RaceDateHour = (setup.RaceDateHour + initial_state.RaceDateHour) % 24
 		print( "RDRotate: RaceDateHour = " .. setup.RaceDateHour )
     end
-
+    -- (re)apply the initial state
 	SetNextSessionAttributes(initial_state)
 	-- now override them with the next state
 	SetNextSessionAttributes( setup )
@@ -115,7 +118,7 @@ local function set_first_setup()
 end
 
 
--- Used to track state changes to decide when the advance the setup
+-- Used to track state changes to decide when to advance the setup
 local last_session_state = "None"
 
 -- Main addon callback
